@@ -21,18 +21,12 @@ namespace Agua.Controllers
             /// Aquí tienen que hacer todo
             /// La fecha que y los minutos vienen del formulario 
             /// Investigar Model Binding 
+        TimeSpan cumppleproximo= ProximoCumple-DateTime.Today;
 
-            int botellasXDia = minutos * 12;
-            DateTime hoy = DateTime.Today;
-            TimeSpan lapsoHoyProximoCumple = ProximoCumple - hoy;
-            int dias = lapsoHoyProximoCumple.Days;
-            int totaBotellas = dias * botellasXDia;
+            ViewBag.Dias = cumppleproximo.Days;
+            ViewBag.Botellas = minutos*12*cumppleproximo.Days;
 
-
-            ViewBag.Dias = dias;
-            ViewBag.Botellas = totaBotellas;
-
-            return View();
+            return View();cu
         }
 
     }
